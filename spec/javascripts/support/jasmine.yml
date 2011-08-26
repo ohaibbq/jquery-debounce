@@ -1,0 +1,6 @@
+src_files:
+  - lib/jquery-1.6.2.min.js
+  - src/jquery-debounce.js
+
+spec_files:
+  - jquery-debounce-spec.js
