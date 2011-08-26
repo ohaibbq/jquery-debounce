@@ -1,10 +1,11 @@
  (function($) {
   function debounce(callback, delay) {
-    var self = this, timeout;
+    var self = this, timeout, _arguments;
     return function() {
-      timeout = clearTimeout(timeout),
+      _arguments = Array.prototype.slice.call(arguments, 0),
+      timeout = clearTimeout(timeout, _arguments),
       timeout = setTimeout(function() {
-        callback.apply(self);
+        callback.apply(self, _arguments);
         timeout = 0;
       }, delay);
 

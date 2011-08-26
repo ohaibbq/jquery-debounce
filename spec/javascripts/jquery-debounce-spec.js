@@ -38,4 +38,16 @@ describe("$.fn.debounce", function() {
 
     expect(called.length).toEqual(1);
   });
+
+  it("passes the arguments through to the callback", function() {
+    var spy = jasmine.createSpy();
+
+    testDiv.debounce("click", spy, 100);
+    testDiv.trigger("click", [123, 1234]);
+
+    jasmine.Clock.tick(120);
+
+    expect(spy.mostRecentCall.args).toEqual([jasmine.any(Object), 123, 1234])
+  });
+
 });
